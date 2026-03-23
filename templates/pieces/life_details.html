@@ -15,8 +15,12 @@
 <!--                    <img src="https://temp.im/800x800?text=shop-img" class="img-fluid" alt="...">-->
                     <div class="row mb-3 row-cols-auto g-2 justify-content-left mt-3">
                         {% for img in imgs %}
-                        <div class="col" ><img src="{{img.url}}"
-                                              class="border rounded bsa-cursor-pointer" alt=""></div>
+                        <div class="col" >
+                            {% if img %}
+                            <img src="{{img.url}}"
+                                              class="border rounded bsa-cursor-pointer" alt="">
+                            {% endif %}
+                        </div>
 
                         {% endfor %}
                     </div>
@@ -61,8 +65,10 @@
                 {% for comment in comms %}
 
                             <div class="d-flex align-items-center flex-wrap gap-2">
+                                {% if comment.user.icon %}
                                 <img src="{{comment.user.icon.url}}"
                                      class="rounded-circle bsa-width-38 bsa-height-38" alt="用户头像">
+                                {% endif %}
                                 <div class="fw-bold">
                                     {{comment.user.username}}
                                 </div>

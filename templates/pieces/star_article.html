@@ -186,7 +186,9 @@
                         <div class="row">
                             <a href="/pieces/details_article?a_id={{article.id}}"
                                class="col-md-3 bg-light  d-none d-md-flex align-items-center justify-content-center bsa-art-thumbs-wrapper">
+                                {% if article.default_img %}
                                 <img src={{article.default_img.url}} class="img-fluid" alt="文章缩略图">
+                                {% endif %}
                             </a>
                             <div class="col-md-9">
                                 <div class="d-flex flex-column gap-2">
@@ -198,8 +200,10 @@
 
                                     <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
                                         <a href="javascript:" class="text-decoration-none">
+                                            {% if article.user.icon %}
                                             <img src="{{article.user.icon.url}}"
                                                  class="bsa-width-40 bsa-height-40 rounded-circle" alt="作者头像">
+                                            {% endif %}
                                             <span class="text-muted">{{article.user.username}}</span>
                                         </a>
                                         <div class="text-muted">

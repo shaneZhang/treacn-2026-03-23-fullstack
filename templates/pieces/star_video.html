@@ -229,8 +229,10 @@
 
                                     <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
                                         <a href="javascript:" class="text-decoration-none">
+                                            {% if video.user.icon %}
                                             <img src="{{video.user.icon.url}}"
                                                  class="bsa-width-40 bsa-height-40 rounded-circle" alt="作者头像">
+                                            {% endif %}
                                             <span class="text-muted">{{video.user.username}}</span>
                                         </a>
                                         <div class="text-muted">

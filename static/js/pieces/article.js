@@ -41,7 +41,7 @@ let vue=new Vue({
                     this.check_content();
                     const formData = new FormData();
                     const file = this.$refs.fileInput.files[0];
-                    if(!this.error_title && !this.error_content && file){
+                    if(!this.error_title && !this.error_content){
                         this.error_form=false;
 
 //                        for(var i=0;i<this.$refs.fileInput.files.length;i++){
@@ -49,8 +49,10 @@ let vue=new Vue({
 //                        }
                         formData.append('title',this.title);
                         formData.append('content',this.content);
-                        formData.append('image',file);
-                        axios.post('/pieces/publish_article/',formData).then(response=>{
+                        if(file){
+                             formData.append('image',file);
+                         }
+                         axios.post('/pieces/publish_article/',formData).then(response=>{
                             if(response.data.code==200){
                                 swal('文章上传成功');
                                 window.location.href='/pieces/publish_article/';

@@ -1671,3 +1671,371 @@ Traceback (most recent call last):
     )
 ValueError: The 'default_img' attribute has no file associated with it.
 ERROR 2026-03-21 19:52:52,369 log 249 "GET /index/article_mall/ HTTP/1.1" 500 153755
+INFO 2026-03-23 12:55:44,278 autoreload 681 Watching for file changes with StatReloader
+INFO 2026-03-23 12:56:00,834 log 249 "GET / HTTP/1.1" 302 0
+INFO 2026-03-23 12:56:00,929 log 249 "GET /index/home_index/ HTTP/1.1" 200 40870
+WARNING 2026-03-23 12:56:01,126 log 249 "GET /static/lib/bootstrap-icons/font/bootstrap-icons.css HTTP/1.1" 404 1946
+INFO 2026-03-23 12:56:01,241 log 249 "GET /static/css/style.css HTTP/1.1" 200 232523
+INFO 2026-03-23 12:56:01,275 log 249 "GET /static/css/bootstrap-admin.min.css HTTP/1.1" 200 25666
+INFO 2026-03-23 12:56:01,275 log 249 "GET /static/js/axios-0.18.0.min.js HTTP/1.1" 200 12907
+INFO 2026-03-23 12:56:01,288 log 249 "GET /static/assets3/vendor/glightbox/css/glightbox.min.css HTTP/1.1" 200 13749
+INFO 2026-03-23 12:56:01,290 log 249 "GET /static/assets3/vendor/animate.css/animate.min.css HTTP/1.1" 200 71750
+INFO 2026-03-23 12:56:01,292 log 249 "GET /static/assets3/vendor/bootstrap-icons/bootstrap-icons.css HTTP/1.1" 200 93734
+INFO 2026-03-23 12:56:01,293 log 249 "GET /static/assets3/vendor/boxicons/css/boxicons.min.css HTTP/1.1" 200 68028
+INFO 2026-03-23 12:56:01,303 log 249 "GET /static/css/bootstrap.min.css HTTP/1.1" 200 163873
+INFO 2026-03-23 12:56:01,306 log 249 "GET /static/assets3/vendor/swiper/swiper-bundle.min.css HTTP/1.1" 200 16493
+INFO 2026-03-23 12:56:01,308 log 249 "GET /static/assets3/css/style.css HTTP/1.1" 200 27180
+INFO 2026-03-23 12:56:01,313 log 249 "GET /static/css/sweetalert.css HTTP/1.1" 200 22879
+INFO 2026-03-23 12:56:01,319 log 249 "GET /static/assets3/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 232914
+INFO 2026-03-23 12:56:01,323 log 249 "GET /static/js/sweetalert-dev.js HTTP/1.1" 200 121789
+INFO 2026-03-23 12:56:01,332 log 249 "GET /static/assets3/img/qin.jpg HTTP/1.1" 200 29111
+INFO 2026-03-23 12:56:01,336 log 249 "GET /static/css/element.css HTTP/1.1" 200 251375
+INFO 2026-03-23 12:56:01,339 log 249 "GET /static/images/q3.png HTTP/1.1" 200 160326
+INFO 2026-03-23 12:56:01,341 log 249 "GET /static/js/vue.js HTTP/1.1" 200 342147
+INFO 2026-03-23 12:56:01,344 log 249 "GET /static/js/element.js HTTP/1.1" 200 664547
+INFO 2026-03-23 12:56:01,510 log 249 "GET /static/images/mn2.jpg HTTP/1.1" 200 87476
+INFO 2026-03-23 12:56:01,514 log 249 "GET /static/assets2/img/demo/index3.jpg HTTP/1.1" 200 51468
+INFO 2026-03-23 12:56:01,545 log 249 "GET /static/assets3/vendor/waypoints/noframework.waypoints.js HTTP/1.1" 200 21112
+INFO 2026-03-23 12:56:01,590 log 249 "GET /static/images/sing2.jpg HTTP/1.1" 200 1601458
+INFO 2026-03-23 12:56:01,724 log 249 "GET /static/js/bootstrap-admin.min.js HTTP/1.1" 200 7205
+INFO 2026-03-23 12:56:01,753 log 249 "GET /static/assets3/img/portfolio/portfolio-3.jpg HTTP/1.1" 200 12377
+INFO 2026-03-23 12:56:01,755 log 249 "GET /static/assets3/js/main.js HTTP/1.1" 200 6297
+INFO 2026-03-23 12:56:01,773 log 249 "GET /static/assets3/img/portfolio/portfolio-4.jpg HTTP/1.1" 200 27697
+INFO 2026-03-23 12:56:01,779 log 249 "GET /static/assets3/img/portfolio/portfolio-5.jpg HTTP/1.1" 200 81363
+INFO 2026-03-23 12:56:01,790 log 249 "GET /static/assets3/img/portfolio/portfolio-1.jpg HTTP/1.1" 200 16236
+INFO 2026-03-23 12:56:01,801 log 249 "GET /static/assets3/img/portfolio/portfolio-6.jpg HTTP/1.1" 200 25598
+INFO 2026-03-23 12:56:01,804 log 249 "GET /static/js/bootstrap.bundle.min.js HTTP/1.1" 200 78129
+INFO 2026-03-23 12:56:01,805 log 249 "GET /static/assets3/img/portfolio/portfolio-2.jpg HTTP/1.1" 200 26469
+INFO 2026-03-23 12:56:01,810 log 249 "GET /static/assets3/img/portfolio/portfolio-9.jpg HTTP/1.1" 200 58756
+INFO 2026-03-23 12:56:01,814 log 249 "GET /static/assets3/img/portfolio/portfolio-8.jpg HTTP/1.1" 200 15876
+INFO 2026-03-23 12:56:01,823 log 249 "GET /static/assets3/img/portfolio/portfolio-7.jpg HTTP/1.1" 200 122008
+INFO 2026-03-23 12:56:01,946 log 249 "GET /static/images/left3.png HTTP/1.1" 200 208699
+INFO 2026-03-23 12:56:01,958 log 249 "GET /static/assets3/img/slide/slide-6.jpg HTTP/1.1" 200 1227809
+INFO 2026-03-23 12:56:01,967 log 249 "GET /static/assets3/img/cta-bg.jpg HTTP/1.1" 200 192817
+INFO 2026-03-23 12:56:02,214 log 249 "GET /static/fonts/element-icons.woff HTTP/1.1" 200 28200
+INFO 2026-03-23 12:56:02,225 log 249 "GET /static/assets3/vendor/boxicons/fonts/boxicons.woff2 HTTP/1.1" 200 115680
+INFO 2026-03-23 12:56:02,238 log 249 "GET /static/assets3/vendor/bootstrap-icons/fonts/bootstrap-icons.woff2?1fa40e8900654d2863d011707b9fb6f2 HTTP/1.1" 200 121340
+INFO 2026-03-23 12:56:02,269 log 249 "GET /static/assets3/img/info-box.jpg HTTP/1.1" 200 123119
+INFO 2026-03-23 12:56:02,513 log 249 "GET /static/assets3/img/favicon.png HTTP/1.1" 200 491
+INFO 2026-03-23 12:56:08,833 log 249 "GET /pieces/upload_video/ HTTP/1.1" 302 0
+INFO 2026-03-23 12:56:08,845 log 249 "GET /user/login/?next=/pieces/upload_video/ HTTP/1.1" 200 7630
+INFO 2026-03-23 12:56:09,013 log 249 "GET /static/js/user/login.js HTTP/1.1" 200 2404
+INFO 2026-03-23 12:56:09,080 log 249 "GET /get_wechat_url/ HTTP/1.1" 200 209
+INFO 2026-03-23 12:56:09,081 log 249 "GET /get_qq_url/ HTTP/1.1" 200 178
+INFO 2026-03-23 12:56:16,630 log 249 "GET /static/assets3/img/slide/slide-7.jpg HTTP/1.1" 200 1286742
+WARNING 2026-03-23 12:56:17,198 log 249 Not Found: /favicon.ico
+WARNING 2026-03-23 12:56:17,205 log 249 "GET /favicon.ico HTTP/1.1" 404 4090
+INFO 2026-03-23 12:56:21,552 log 249 "GET /static/assets3/img/slide/slide-8.jpg HTTP/1.1" 200 335535
+INFO 2026-03-23 12:56:27,669 log 249 "GET /index/other_user/ HTTP/1.1" 200 20122
+WARNING 2026-03-23 12:56:27,750 log 249 "GET /static/lib/bootstrap-icons/font/bootstrap-icons.css HTTP/1.1" 404 1946
+INFO 2026-03-23 12:56:34,601 log 249 "GET /user/logout/ HTTP/1.1" 302 0
+INFO 2026-03-23 12:56:34,623 log 249 "GET /user/login/ HTTP/1.1" 200 7630
+INFO 2026-03-23 12:56:34,779 log 249 "GET /get_wechat_url/ HTTP/1.1" 200 209
+INFO 2026-03-23 12:56:34,783 log 249 "GET /get_qq_url/ HTTP/1.1" 200 178
+ERROR 2026-03-23 12:56:42,395 log 249 Internal Server Error: /user/check_password/
+Traceback (most recent call last):
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/QTribe/apps/user/views.py", line 65, in post
+    if user.check_password(password):
+       ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'QuerySet' object has no attribute 'check_password'
+ERROR 2026-03-23 12:56:42,399 log 249 "POST /user/check_password/ HTTP/1.1" 500 20709
+INFO 2026-03-23 12:56:44,017 log 249 "POST /user/login/ HTTP/1.1" 302 0
+INFO 2026-03-23 12:56:44,030 log 249 "GET /index/no_find/ HTTP/1.1" 200 24169
+ERROR 2026-03-23 12:56:44,360 log 249 Internal Server Error: /user/check_password/
+Traceback (most recent call last):
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/QTribe/apps/user/views.py", line 65, in post
+    if user.check_password(password):
+       ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'QuerySet' object has no attribute 'check_password'
+INFO 2026-03-23 12:56:44,363 basehttp 82 - Broken pipe from ('127.0.0.1', 61301)
+INFO 2026-03-23 12:56:47,345 log 249 "GET /user/login/ HTTP/1.1" 200 7630
+ERROR 2026-03-23 12:56:51,949 log 249 Internal Server Error: /user/check_password/
+Traceback (most recent call last):
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/QTribe/apps/user/views.py", line 65, in post
+    if user.check_password(password):
+       ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'QuerySet' object has no attribute 'check_password'
+ERROR 2026-03-23 12:56:51,951 log 249 "POST /user/check_password/ HTTP/1.1" 500 20709
+INFO 2026-03-23 12:56:53,654 log 249 "POST /user/login/ HTTP/1.1" 302 0
+INFO 2026-03-23 12:56:53,728 log 249 "GET /index/home_index/ HTTP/1.1" 200 40875
+WARNING 2026-03-23 12:56:53,915 log 249 "GET /static/lib/bootstrap-icons/font/bootstrap-icons.css HTTP/1.1" 404 1946
+ERROR 2026-03-23 12:56:54,066 log 249 Internal Server Error: /user/check_password/
+Traceback (most recent call last):
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/QTribe/apps/user/views.py", line 65, in post
+    if user.check_password(password):
+       ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'QuerySet' object has no attribute 'check_password'
+ERROR 2026-03-23 12:56:54,074 log 249 "POST /user/check_password/ HTTP/1.1" 500 20758
+ERROR 2026-03-23 12:56:59,571 log 249 Internal Server Error: /index/article_mall/
+Traceback (most recent call last):
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/QTribe/apps/index/views.py", line 122, in get
+    return render(request, 'public/article_mall.html', {'page_content': page_content,
+                                                    'page_list': page_list,
+    ...<3 lines>...
+                                                    'collection_ids':collection_ids,
+                                                    })
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/template/backends/jinja2.py", line 74, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/templates/public/article_mall.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/templates/base.html", line 346, in top-level template code
+    {% block content %}
+    ^^^^^^^^^^^^^^^^^
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/templates/public/article_mall.html", line 178, in block 'content'
+    <img src={{article.default_img.url}} class="img-fluid" alt="文章缩略图">
+    
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/db/models/fields/files.py", line 68, in url
+    self._require_file()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/db/models/fields/files.py", line 43, in _require_file
+    raise ValueError(
+        "The '%s' attribute has no file associated with it." % self.field.name
+    )
+ValueError: The 'default_img' attribute has no file associated with it.
+ERROR 2026-03-23 12:56:59,582 log 249 "GET /index/article_mall/ HTTP/1.1" 500 151308
+INFO 2026-03-23 12:57:28,901 log 249 "GET /pieces/my_video/ HTTP/1.1" 200 20937
+WARNING 2026-03-23 12:57:28,985 log 249 "GET /static/lib/bootstrap-icons/font/bootstrap-icons.css HTTP/1.1" 404 1946
+WARNING 2026-03-23 12:57:29,074 log 249 "GET /static/lib/jquery/dist/jquery.min.js HTTP/1.1" 404 1901
+WARNING 2026-03-23 12:57:29,077 log 249 "GET /static/lib/formvalidation/js/formValidation.js HTTP/1.1" 404 1931
+WARNING 2026-03-23 12:57:29,150 log 249 "GET /static/lib/formvalidation/js/language/zh_CN.js HTTP/1.1" 404 1931
+WARNING 2026-03-23 12:57:29,154 log 249 "GET /static/lib/formvalidation/js/framework/bootstrap.js HTTP/1.1" 404 1946
+INFO 2026-03-23 12:57:31,656 log 249 "GET /index/other_user/ HTTP/1.1" 200 17618
+WARNING 2026-03-23 12:57:31,730 log 249 "GET /static/lib/bootstrap-icons/font/bootstrap-icons.css HTTP/1.1" 404 1946
+ERROR 2026-03-23 12:57:33,580 log 249 Internal Server Error: /index/article_mall/
+Traceback (most recent call last):
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/QTribe/apps/index/views.py", line 122, in get
+    return render(request, 'public/article_mall.html', {'page_content': page_content,
+                                                    'page_list': page_list,
+    ...<3 lines>...
+                                                    'collection_ids':collection_ids,
+                                                    })
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/template/backends/jinja2.py", line 74, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/templates/public/article_mall.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/templates/base.html", line 346, in top-level template code
+    {% block content %}
+    ^^^^^^^^^^^^^^^^^
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/templates/public/article_mall.html", line 178, in block 'content'
+    <img src={{article.default_img.url}} class="img-fluid" alt="文章缩略图">
+    
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/db/models/fields/files.py", line 68, in url
+    self._require_file()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/db/models/fields/files.py", line 43, in _require_file
+    raise ValueError(
+        "The '%s' attribute has no file associated with it." % self.field.name
+    )
+ValueError: The 'default_img' attribute has no file associated with it.
+ERROR 2026-03-23 12:57:33,584 log 249 "GET /index/article_mall/ HTTP/1.1" 500 151308
+INFO 2026-03-23 13:05:15,788 autoreload 681 Watching for file changes with StatReloader
+INFO 2026-03-23 13:05:29,533 log 249 "GET /index/article_mall/ HTTP/1.1" 200 35354
+INFO 2026-03-23 13:05:37,385 log 249 "GET /index/article_mall/ HTTP/1.1" 200 35354
+WARNING 2026-03-23 13:05:37,759 log 249 "GET /static/lib/bootstrap-icons/font/bootstrap-icons.css HTTP/1.1" 404 1946
+INFO 2026-03-23 13:05:37,807 log 249 "GET /static/js/axios-0.18.0.min.js HTTP/1.1" 200 12907
+INFO 2026-03-23 13:05:37,818 log 249 "GET /static/css/bootstrap-admin.min.css HTTP/1.1" 200 25666
+INFO 2026-03-23 13:05:37,844 log 249 "GET /static/css/element.css HTTP/1.1" 200 251375
+INFO 2026-03-23 13:05:37,846 log 249 "GET /static/css/sweetalert.css HTTP/1.1" 200 22879
+INFO 2026-03-23 13:05:37,850 log 249 "GET /static/css/style.css HTTP/1.1" 200 232523
+INFO 2026-03-23 13:05:37,852 log 249 "GET /static/css/bootstrap.min.css HTTP/1.1" 200 163873
+INFO 2026-03-23 13:05:37,855 log 249 "GET /static/js/vue.js HTTP/1.1" 200 342147
+INFO 2026-03-23 13:05:37,861 log 249 "GET /static/js/element.js HTTP/1.1" 200 664547
+INFO 2026-03-23 13:05:37,868 log 249 "GET /static/js/sweetalert-dev.js HTTP/1.1" 200 121789
+INFO 2026-03-23 13:05:37,883 log 249 "GET /static/images/q3.png HTTP/1.1" 200 160326
+INFO 2026-03-23 13:05:37,891 log 249 "GET /static/js/bootstrap.bundle.min.js HTTP/1.1" 200 78129
+INFO 2026-03-23 13:05:37,968 log 249 "GET /static/js/bootstrap-admin.min.js HTTP/1.1" 200 7205
+INFO 2026-03-23 13:05:38,151 log 249 "GET /static/images/left3.png HTTP/1.1" 200 208699
+INFO 2026-03-23 13:05:38,186 log 249 "GET /static/fonts/element-icons.woff HTTP/1.1" 200 28200
+WARNING 2026-03-23 13:05:38,494 log 249 Not Found: /@vite/client
+WARNING 2026-03-23 13:05:38,495 log 249 "GET /@vite/client HTTP/1.1" 404 4093
+INFO 2026-03-23 13:05:42,813 log 249 "GET / HTTP/1.1" 302 0
+INFO 2026-03-23 13:05:42,945 log 249 "GET /index/home_index/ HTTP/1.1" 200 40875
+WARNING 2026-03-23 13:05:43,029 log 249 "GET /static/lib/bootstrap-icons/font/bootstrap-icons.css HTTP/1.1" 404 1946
+INFO 2026-03-23 13:05:46,798 log 249 "GET /index/article_mall/ HTTP/1.1" 200 35359
+WARNING 2026-03-23 13:05:46,872 log 249 "GET /static/lib/bootstrap-icons/font/bootstrap-icons.css HTTP/1.1" 404 1946
+INFO 2026-03-23 13:06:04,177 log 249 "GET /index/article_mall/?page_number=2 HTTP/1.1" 200 35361
+WARNING 2026-03-23 13:06:04,250 log 249 "GET /static/lib/bootstrap-icons/font/bootstrap-icons.css HTTP/1.1" 404 1946
+INFO 2026-03-23 13:06:09,916 log 249 "GET /index/life_mall/ HTTP/1.1" 200 18793
+WARNING 2026-03-23 13:06:09,989 log 249 "GET /static/lib/bootstrap-icons/font/bootstrap-icons.css HTTP/1.1" 404 1946
+INFO 2026-03-23 13:06:11,515 log 249 "GET /index/video_mall/ HTTP/1.1" 200 21962
+WARNING 2026-03-23 13:06:11,655 log 249 "GET /static/lib/jquery/dist/jquery.min.js HTTP/1.1" 404 1901
+WARNING 2026-03-23 13:06:11,659 log 249 "GET /static/lib/bootstrap-icons/font/bootstrap-icons.css HTTP/1.1" 404 1946
+WARNING 2026-03-23 13:06:11,662 log 249 "GET /static/lib/formvalidation/js/formValidation.js HTTP/1.1" 404 1931
+WARNING 2026-03-23 13:06:11,676 log 249 "GET /static/lib/formvalidation/js/framework/bootstrap.js HTTP/1.1" 404 1946
+WARNING 2026-03-23 13:06:11,755 log 249 "GET /static/lib/formvalidation/js/language/zh_CN.js HTTP/1.1" 404 1931
+INFO 2026-03-23 13:06:14,915 log 249 "GET /index/article_mall/ HTTP/1.1" 200 35359
+WARNING 2026-03-23 13:06:14,995 log 249 "GET /static/lib/bootstrap-icons/font/bootstrap-icons.css HTTP/1.1" 404 1946
+INFO 2026-03-23 13:06:20,820 log 249 "GET /pieces/my_video/ HTTP/1.1" 200 20937
+WARNING 2026-03-23 13:06:20,915 log 249 "GET /static/lib/jquery/dist/jquery.min.js HTTP/1.1" 404 1901
+WARNING 2026-03-23 13:06:20,931 log 249 "GET /static/lib/bootstrap-icons/font/bootstrap-icons.css HTTP/1.1" 404 1946
+WARNING 2026-03-23 13:06:20,934 log 249 "GET /static/lib/formvalidation/js/formValidation.js HTTP/1.1" 404 1931
+WARNING 2026-03-23 13:06:20,966 log 249 "GET /static/lib/formvalidation/js/framework/bootstrap.js HTTP/1.1" 404 1946
+WARNING 2026-03-23 13:06:21,046 log 249 "GET /static/lib/formvalidation/js/language/zh_CN.js HTTP/1.1" 404 1931
+ERROR 2026-03-23 13:06:23,467 log 249 Internal Server Error: /pieces/my_article/
+Traceback (most recent call last):
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/contrib/auth/mixins.py", line 74, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/QTribe/apps/pieces_info/views/article.py", line 60, in get
+    return render(request, 'pieces/my_article.html', {'page_content': page_content,
+                                                    'page_list': page_list,
+                                                    'current_page': page_content.number,
+                                                    'num_pages': num_pages})
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/template/backends/jinja2.py", line 74, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/templates/pieces/my_article.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/templates/base.html", line 346, in top-level template code
+    {% block content %}
+    ^^^^^^^^^^^^^^^^^
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/templates/pieces/my_article.html", line 138, in block 'content'
+    <img src={{article.default_img.url}} class="img-fluid" alt="文章缩略图">
+    
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/db/models/fields/files.py", line 68, in url
+    self._require_file()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/django/db/models/fields/files.py", line 43, in _require_file
+    raise ValueError(
+        "The '%s' attribute has no file associated with it." % self.field.name
+    )
+ValueError: The 'default_img' attribute has no file associated with it.
+ERROR 2026-03-23 13:06:23,475 log 249 "GET /pieces/my_article/ HTTP/1.1" 500 160762
+INFO 2026-03-23 13:13:19,516 log 249 "GET /index/article_mall/ HTTP/1.1" 200 35354
+INFO 2026-03-23 13:13:19,557 log 249 "GET /pieces/my_article/ HTTP/1.1" 302 0
+INFO 2026-03-23 13:13:25,745 log 249 "GET /pieces/my_article/ HTTP/1.1" 302 0
+INFO 2026-03-23 13:13:25,750 log 249 "GET /user/login/?next=/pieces/my_article/ HTTP/1.1" 200 7630
+INFO 2026-03-23 13:14:00,265 log 249 "GET /pieces/my_article/ HTTP/1.1" 200 37858
+WARNING 2026-03-23 13:14:00,356 log 249 "GET /static/lib/bootstrap-icons/font/bootstrap-icons.css HTTP/1.1" 404 1946
+WARNING 2026-03-23 13:14:00,493 log 249 "GET /static/lib/formvalidation/js/formValidation.js HTTP/1.1" 404 1931
+WARNING 2026-03-23 13:14:00,512 log 249 "GET /static/lib/formvalidation/js/framework/bootstrap.js HTTP/1.1" 404 1946
+WARNING 2026-03-23 13:14:00,518 log 249 "GET /static/lib/formvalidation/js/language/zh_CN.js HTTP/1.1" 404 1931
+WARNING 2026-03-23 13:14:00,525 log 249 "GET /static/lib/jquery/dist/jquery.min.js HTTP/1.1" 404 1901
+INFO 2026-03-23 13:14:04,268 log 249 "GET /pieces/my_video/ HTTP/1.1" 200 20937
+WARNING 2026-03-23 13:14:04,358 log 249 "GET /static/lib/bootstrap-icons/font/bootstrap-icons.css HTTP/1.1" 404 1946
+WARNING 2026-03-23 13:14:04,415 log 249 "GET /static/lib/jquery/dist/jquery.min.js HTTP/1.1" 404 1901
+WARNING 2026-03-23 13:14:04,425 log 249 "GET /static/lib/formvalidation/js/formValidation.js HTTP/1.1" 404 1931
+WARNING 2026-03-23 13:14:04,453 log 249 "GET /static/lib/formvalidation/js/language/zh_CN.js HTTP/1.1" 404 1931
+WARNING 2026-03-23 13:14:04,454 log 249 "GET /static/lib/formvalidation/js/framework/bootstrap.js HTTP/1.1" 404 1946
+INFO 2026-03-23 13:14:06,357 log 249 "GET /pieces/my_video/ HTTP/1.1" 200 20937
+WARNING 2026-03-23 13:14:06,507 log 249 "GET /static/lib/bootstrap-icons/font/bootstrap-icons.css HTTP/1.1" 404 1946
+WARNING 2026-03-23 13:14:06,569 log 249 "GET /static/lib/formvalidation/js/formValidation.js HTTP/1.1" 404 1931
+WARNING 2026-03-23 13:14:06,642 log 249 "GET /static/lib/formvalidation/js/framework/bootstrap.js HTTP/1.1" 404 1946
+WARNING 2026-03-23 13:14:06,659 log 249 "GET /static/lib/formvalidation/js/language/zh_CN.js HTTP/1.1" 404 1931
+WARNING 2026-03-23 13:14:06,664 log 249 "GET /static/lib/jquery/dist/jquery.min.js HTTP/1.1" 404 1901
+INFO 2026-03-23 13:14:08,164 log 249 "GET /index/information/ HTTP/1.1" 200 19549
+WARNING 2026-03-23 13:14:08,218 log 249 "GET /static/lib/bootstrap-icons/font/bootstrap-icons.css HTTP/1.1" 404 1946
+INFO 2026-03-23 13:14:15,269 log 249 "GET /index/information/ HTTP/1.1" 200 19549
+WARNING 2026-03-23 13:14:15,339 log 249 "GET /static/lib/bootstrap-icons/font/bootstrap-icons.css HTTP/1.1" 404 1946
+INFO 2026-03-23 13:14:19,661 log 249 "GET /pieces/publish_article/ HTTP/1.1" 200 17603
+INFO 2026-03-23 13:14:19,756 log 249 "GET /static/js/pieces/article.js HTTP/1.1" 200 3445
+WARNING 2026-03-23 13:14:19,758 log 249 "GET /static/lib/bootstrap-icons/font/bootstrap-icons.css HTTP/1.1" 404 1946
+INFO 2026-03-23 13:15:30,340 log 249 "POST /pieces/publish_article/ HTTP/1.1" 200 13
+INFO 2026-03-23 13:16:26,408 log 249 "GET /static/js/pieces/article.js HTTP/1.1" 200 3504
+INFO 2026-03-23 13:16:33,211 log 249 "POST /pieces/publish_article/ HTTP/1.1" 200 13
+INFO 2026-03-23 13:17:06,097 log 249 "GET /pieces/publish_article/ HTTP/1.1" 200 17603
+WARNING 2026-03-23 13:17:06,173 log 249 "GET /static/lib/bootstrap-icons/font/bootstrap-icons.css HTTP/1.1" 404 1946
+INFO 2026-03-23 13:17:43,744 basehttp 82 - Broken pipe from ('127.0.0.1', 64251)
+INFO 2026-03-23 13:18:14,254 log 249 "POST /pieces/publish_article/ HTTP/1.1" 200 13
+INFO 2026-03-23 13:18:14,261 log 249 "POST /pieces/publish_article/ HTTP/1.1" 200 13

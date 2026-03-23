@@ -67,7 +67,7 @@
                         {% for o_user in user_list %}
                         <tr>
                             <td>
-                                {% if o_user.id in icon_ids %}
+                                {% if o_user.icon %}
                                     <img src={{o_user.icon.url}} alt="Admin"
                                          class="rounded-circle p-1 bsa-bg-color4 bsa-width-60 bsa-height-60" data-bs-toggle="modal"
                                          data-bs-target="#exampleModal">
