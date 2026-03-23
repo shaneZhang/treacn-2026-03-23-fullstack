@@ -3,6 +3,15 @@
 import os
 import sys
 
+# Python 3.13+ compatibility patch for pkg_resources
+import pkgutil
+if not hasattr(pkgutil, 'ImpImporter'):
+    # Create a dummy class for compatibility with older packages
+    class _DummyImpImporter:
+        def __init__(self, *args, **kwargs):
+            pass
+    pkgutil.ImpImporter = _DummyImpImporter
+
 
 def main():
     """Run administrative tasks."""

@@ -1,10 +1,16 @@
 from django.urls import path
+from rest_framework.routers import DefaultRouter
 
 from pieces_info.views.article import MyArticle,  StarArticle, TopArticle, PublishArticle,DetailsArticle,DeleteArticle,CollectArticle,StarArticleList,ArticleSearchView,CollectArticleList
 from pieces_info.views.life import MyLife,ShareLife,StarLife, TopLife, DetailsLife, DeleteLife, CollectLife, StarLifeList,LifeSearchView,CollectLifeList
 from pieces_info.views.video import UploadVideo, MyVideo, PlayVideo, StarVideo, TopVideo, DeleteVideo,CollectVideo,StarVideoList,CollectVideoList,VideoSearchView
-
 from pieces_info.views.comment import Comment_life
+from .views_api import ArticleViewSet, CommentViewSet
+
+
+router = DefaultRouter()
+router.register(r'article', ArticleViewSet, basename='article')
+router.register(r'comment', CommentViewSet, basename='comment')
 
 urlpatterns=[
      #视频
@@ -41,6 +47,9 @@ urlpatterns=[
      path('collect_life_list/',CollectLifeList.as_view()),
      path('search_life/',LifeSearchView()),
      #评论
-     path('comment_life/',Comment_life.as_view())
+     path('comment_life/',Comment_life.as_view()),
 
 ]
+
+# 添加DRF路由
+urlpatterns += router.urls
