@@ -2039,3 +2039,7 @@ WARNING 2026-03-23 13:17:06,173 log 249 "GET /static/lib/bootstrap-icons/font/bo
 INFO 2026-03-23 13:17:43,744 basehttp 82 - Broken pipe from ('127.0.0.1', 64251)
 INFO 2026-03-23 13:18:14,254 log 249 "POST /pieces/publish_article/ HTTP/1.1" 200 13
 INFO 2026-03-23 13:18:14,261 log 249 "POST /pieces/publish_article/ HTTP/1.1" 200 13
+INFO 2026-03-23 15:04:08,538 autoreload 667 Watching for file changes with StatReloader
+INFO 2026-03-23 15:04:08,538 autoreload 667 Watching for file changes with StatReloader
+INFO 2026-03-23 15:04:18,121 autoreload 265 /Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/QTribe/settings/dev.py changed, reloading.
+INFO 2026-03-23 15:04:18,140 autoreload 265 /Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/QTribe/settings/dev.py changed, reloading.
