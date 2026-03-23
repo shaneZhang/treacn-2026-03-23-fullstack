@@ -2039,3 +2039,82 @@ WARNING 2026-03-23 13:17:06,173 log 249 "GET /static/lib/bootstrap-icons/font/bo
 INFO 2026-03-23 13:17:43,744 basehttp 82 - Broken pipe from ('127.0.0.1', 64251)
 INFO 2026-03-23 13:18:14,254 log 249 "POST /pieces/publish_article/ HTTP/1.1" 200 13
 INFO 2026-03-23 13:18:14,261 log 249 "POST /pieces/publish_article/ HTTP/1.1" 200 13
+INFO 2026-03-23 13:34:27,974 autoreload 681 Watching for file changes with StatReloader
+INFO 2026-03-23 13:34:30,558 autoreload 265 /Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/QTribe/settings/dev.py changed, reloading.
+INFO 2026-03-23 13:34:31,515 autoreload 681 Watching for file changes with StatReloader
+INFO 2026-03-23 13:34:43,048 autoreload 265 /Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/QTribe/settings/dev.py changed, reloading.
+INFO 2026-03-23 13:34:44,277 autoreload 681 Watching for file changes with StatReloader
+INFO 2026-03-23 13:57:09,185 autoreload 681 Watching for file changes with StatReloader
+INFO 2026-03-23 13:58:21,896 autoreload 265 /Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/asgiref/sync.py changed, reloading.
+INFO 2026-03-23 13:58:21,998 autoreload 265 /Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/asgiref/local.py changed, reloading.
+INFO 2026-03-23 14:01:25,854 autoreload 667 Watching for file changes with StatReloader
+INFO 2026-03-23 14:01:48,950 autoreload 667 Watching for file changes with StatReloader
+INFO 2026-03-23 14:02:01,960 autoreload 667 Watching for file changes with StatReloader
+INFO 2026-03-23 14:02:04,283 autoreload 265 /Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/_distutils_hack/__init__.py changed, reloading.
+INFO 2026-03-23 14:02:04,619 autoreload 265 /Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/venv/lib/python3.13/site-packages/_distutils_hack/__init__.py changed, reloading.
+INFO 2026-03-23 14:02:06,939 autoreload 667 Watching for file changes with StatReloader
+INFO 2026-03-23 14:02:07,006 autoreload 667 Watching for file changes with StatReloader
+INFO 2026-03-23 14:02:14,217 autoreload 667 Watching for file changes with StatReloader
+INFO 2026-03-23 14:02:31,256 autoreload 265 /Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/QTribe/settings/dev.py changed, reloading.
+INFO 2026-03-23 14:02:31,370 autoreload 265 /Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/QTribe/settings/dev.py changed, reloading.
+INFO 2026-03-23 14:02:31,522 autoreload 265 /Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/QTribe/settings/dev.py changed, reloading.
+INFO 2026-03-23 14:02:34,907 autoreload 667 Watching for file changes with StatReloader
+INFO 2026-03-23 14:02:34,951 autoreload 667 Watching for file changes with StatReloader
+INFO 2026-03-23 14:02:34,967 autoreload 667 Watching for file changes with StatReloader
+INFO 2026-03-23 14:02:38,655 autoreload 265 /Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/QTribe/settings/dev.py changed, reloading.
+INFO 2026-03-23 14:02:38,680 autoreload 265 /Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/QTribe/settings/dev.py changed, reloading.
+INFO 2026-03-23 14:02:39,554 autoreload 265 /Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/QTribe/settings/dev.py changed, reloading.
+INFO 2026-03-23 14:02:40,831 autoreload 667 Watching for file changes with StatReloader
+INFO 2026-03-23 14:02:41,081 autoreload 667 Watching for file changes with StatReloader
+INFO 2026-03-23 14:02:41,699 autoreload 667 Watching for file changes with StatReloader
+INFO 2026-03-23 14:02:47,788 autoreload 265 /Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/QTribe/settings/dev.py changed, reloading.
+INFO 2026-03-23 14:02:47,793 autoreload 265 /Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/QTribe/settings/dev.py changed, reloading.
+INFO 2026-03-23 14:02:48,236 autoreload 265 /Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/QTribe/settings/dev.py changed, reloading.
+INFO 2026-03-23 14:02:50,155 autoreload 667 Watching for file changes with StatReloader
+INFO 2026-03-23 14:02:50,162 autoreload 667 Watching for file changes with StatReloader
+INFO 2026-03-23 14:02:50,179 autoreload 667 Watching for file changes with StatReloader
+INFO 2026-03-23 14:02:57,125 autoreload 265 /Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/QTribe/__init__.py changed, reloading.
+INFO 2026-03-23 14:02:57,128 autoreload 265 /Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/QTribe/__init__.py changed, reloading.
+INFO 2026-03-23 14:02:57,128 autoreload 265 /Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/QTribe/__init__.py changed, reloading.
+INFO 2026-03-23 14:02:59,324 autoreload 667 Watching for file changes with StatReloader
+INFO 2026-03-23 14:02:59,342 autoreload 667 Watching for file changes with StatReloader
+INFO 2026-03-23 14:02:59,365 autoreload 667 Watching for file changes with StatReloader
+INFO 2026-03-23 14:03:03,786 autoreload 667 Watching for file changes with StatReloader
+INFO 2026-03-23 14:03:21,283 autoreload 265 /Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/manage.py changed, reloading.
+INFO 2026-03-23 14:03:21,310 autoreload 265 /Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/manage.py changed, reloading.
+INFO 2026-03-23 14:03:21,416 autoreload 265 /Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/manage.py changed, reloading.
+INFO 2026-03-23 14:03:21,951 autoreload 265 /Users/zhangyuqing/Desktop/treacn-2026-03-23-fullstack/manage.py changed, reloading.
+INFO 2026-03-23 14:03:25,662 autoreload 667 Watching for file changes with StatReloader
+INFO 2026-03-23 14:03:25,715 autoreload 667 Watching for file changes with StatReloader
+INFO 2026-03-23 14:03:25,729 autoreload 667 Watching for file changes with StatReloader
+INFO 2026-03-23 14:03:26,408 autoreload 667 Watching for file changes with StatReloader
+INFO 2026-03-23 14:03:31,733 autoreload 667 Watching for file changes with StatReloader
+INFO 2026-03-23 14:03:44,885 autoreload 667 Watching for file changes with StatReloader
+WARNING 2026-03-23 14:04:25,276 log 246 Not Found: /api/pieces/article/
+WARNING 2026-03-23 14:04:25,278 basehttp 212 "GET /api/pieces/article/?page=1&page_size=6 HTTP/1.1" 404 3851
+WARNING 2026-03-23 14:04:25,338 log 246 Not Found: /api/pieces/article/
+WARNING 2026-03-23 14:04:25,339 basehttp 212 "GET /api/pieces/article/?page=1&page_size=6 HTTP/1.1" 404 3851
+WARNING 2026-03-23 14:04:42,840 log 246 Not Found: /api/pieces/article/
+WARNING 2026-03-23 14:04:42,841 basehttp 212 "GET /api/pieces/article/?page=1&page_size=6 HTTP/1.1" 404 3851
+WARNING 2026-03-23 14:04:42,913 log 246 Not Found: /api/pieces/article/
+WARNING 2026-03-23 14:04:42,919 basehttp 212 "GET /api/pieces/article/?page=1&page_size=6 HTTP/1.1" 404 3851
+WARNING 2026-03-23 14:04:49,789 log 246 Not Found: /api/pieces/article/
+WARNING 2026-03-23 14:04:49,790 basehttp 212 "GET /api/pieces/article/?page=1&page_size=10 HTTP/1.1" 404 3852
+WARNING 2026-03-23 14:04:49,858 log 246 Not Found: /api/pieces/article/
+WARNING 2026-03-23 14:04:49,859 basehttp 212 "GET /api/pieces/article/?page=1&page_size=10 HTTP/1.1" 404 3852
+WARNING 2026-03-23 14:04:51,782 log 246 Not Found: /api/pieces/article/
+WARNING 2026-03-23 14:04:51,782 basehttp 212 "GET /api/pieces/article/?page=1&page_size=6 HTTP/1.1" 404 3851
+WARNING 2026-03-23 14:04:51,830 log 246 Not Found: /api/pieces/article/
+WARNING 2026-03-23 14:04:51,831 basehttp 212 "GET /api/pieces/article/?page=1&page_size=6 HTTP/1.1" 404 3851
+WARNING 2026-03-23 14:04:56,778 log 246 Not Found: /api/pieces/article/
+WARNING 2026-03-23 14:04:56,778 basehttp 212 "GET /api/pieces/article/?page=1&page_size=6 HTTP/1.1" 404 3851
+WARNING 2026-03-23 14:04:56,826 log 246 Not Found: /api/pieces/article/
+WARNING 2026-03-23 14:04:56,829 basehttp 212 "GET /api/pieces/article/?page=1&page_size=6 HTTP/1.1" 404 3851
+WARNING 2026-03-23 14:05:00,827 log 246 Not Found: /api/pieces/article/
+WARNING 2026-03-23 14:05:00,829 basehttp 212 "GET /api/pieces/article/?page=1&page_size=6 HTTP/1.1" 404 3851
+WARNING 2026-03-23 14:05:00,856 log 246 Not Found: /api/pieces/article/
+WARNING 2026-03-23 14:05:00,858 basehttp 212 "GET /api/pieces/article/?page=1&page_size=6 HTTP/1.1" 404 3851
+WARNING 2026-03-23 14:05:05,079 log 246 Not Found: /api/pieces/article/
+WARNING 2026-03-23 14:05:05,085 basehttp 212 "GET /api/pieces/article/?page=1&page_size=6 HTTP/1.1" 404 3851
+WARNING 2026-03-23 14:05:05,160 log 246 Not Found: /api/pieces/article/
+WARNING 2026-03-23 14:05:05,161 basehttp 212 "GET /api/pieces/article/?page=1&page_size=6 HTTP/1.1" 404 3851
