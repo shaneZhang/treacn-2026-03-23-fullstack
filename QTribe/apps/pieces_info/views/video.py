@@ -4,7 +4,6 @@ import subprocess
 
 from django.conf import settings
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator, InvalidPage
 from django.db import transaction
 from django.db.models import F
 from django.http import JsonResponse, Http404
@@ -18,6 +17,7 @@ from pieces_info.models import VideoModel, ImageModel
 from user.models import StarModel, CollectionModel
 
 from QTribe.tasks import send_message
+from utils.pagination import paginate_queryset, PaginationMixin
 
 
 class UploadVideo(LoginRequiredMixin, View):
@@ -99,35 +99,11 @@ def video_operator(request, video_id, video_path, img_path):
 # 自己的视频列表页面
 class MyVideo(LoginRequiredMixin, View):
     def get(self, request):
-
-        page_number = int(request.GET.get('page_number', 1))
         # 获取该用户所有视频
         video_list = VideoModel.objects.filter(user__id=request.user.id)
-        # 创建分页对象
-        paginator = Paginator(video_list, 5)
-        num_pages = paginator.num_pages
-        # 获取页码数列，用于前端遍历
-        if paginator.num_pages > 5:
-            if page_number - 2 <= 1:
-                page_list = range(1, 6)
-            elif page_number + 2 >= num_pages:
-                page_list = range(num_pages - 4, num_pages + 1)
-            else:
-                page_list = range(page_number - 1, page_number + 4)
-
-        else:
-            page_list = paginator.page_range
-        try:
-            # 获取对应页数的全部视频
-            page_content = paginator.page(page_number)
-        except PageNotAnInteger:
-            page_content = paginator.page(1)
-        except EmptyPage:
-            page_content = paginator.page(num_pages)
-        return render(request, 'pieces/my_video.html', {'page_content': page_content,
-                                                        'page_list': page_list,
-                                                        'current_page': page_content.number,
-                                                        'num_pages': num_pages})
+        # 使用分页工具
+        context = paginate_queryset(request, video_list, per_page=5)
+        return render(request, 'pieces/my_video.html', context)
 
 
 # 播放视频,浏览次数
@@ -261,7 +237,6 @@ class DeleteVideo(View):
 # 点赞的视频列表页面
 class StarVideoList(LoginRequiredMixin, View):
     def get(self, request):
-        page_number = int(request.GET.get('page_number', 1))
         star_ids = []
         objs = request.user.starmodel_set.all()
         for obj in objs:
@@ -275,38 +250,15 @@ class StarVideoList(LoginRequiredMixin, View):
             for obj in objs:
                 if obj.video == video and obj.flag=='1':
                     collection_ids.append(video.id)
-        # 创建分页对象
-        paginator = Paginator(video_list, 2)
-        num_pages = paginator.num_pages
-        # 获取页码数列，用于前端遍历
-        if paginator.num_pages > 5:
-            if page_number - 2 <= 1:
-                page_list = range(1, 6)
-            elif page_number + 2 >= num_pages:
-                page_list = range(num_pages - 4, num_pages + 1)
-            else:
-                page_list = range(page_number - 1, page_number + 4)
-
-        else:
-            page_list = paginator.page_range
-        try:
-            # 获取对应页数的全部视频
-            page_content = paginator.page(page_number)
-        except PageNotAnInteger:
-            page_content = paginator.page(1)
-        except EmptyPage:
-            page_content = paginator.page(num_pages)
-        return render(request, 'pieces/star_video.html', {'page_content': page_content,
-                                                          'page_list': page_list,
-                                                          'current_page': page_content.number,
-                                                          'num_pages': num_pages,
-                                                          'collection_ids': collection_ids})
+        # 使用分页工具
+        context = paginate_queryset(request, video_list, per_page=2)
+        context['collection_ids'] = collection_ids
+        return render(request, 'pieces/star_video.html', context)
 
 
 # 收藏的视频列表页面
 class CollectVideoList(LoginRequiredMixin, View):
     def get(self, request):
-        page_number = int(request.GET.get('page_number', 1))
         collection_ids = []
         objs = request.user.collectionmodel_set.all()
         for obj in objs:
@@ -320,72 +272,40 @@ class CollectVideoList(LoginRequiredMixin, View):
             for obj in objs:
                 if obj.video == video and obj.flag=='1':
                     star_ids.append(video.id)
-        # 创建分页对象
-        paginator = Paginator(video_list, 2)
-        num_pages = paginator.num_pages
-        # 获取页码数列，用于前端遍历
-        if paginator.num_pages > 5:
-            if page_number - 2 <= 1:
-                page_list = range(1, 6)
-            elif page_number + 2 >= num_pages:
-                page_list = range(num_pages - 4, num_pages + 1)
-            else:
-                page_list = range(page_number - 1, page_number + 4)
-
-        else:
-            page_list = paginator.page_range
-        try:
-            # 获取对应页数的全部视频
-            page_content = paginator.page(page_number)
-        except PageNotAnInteger:
-            page_content = paginator.page(1)
-        except EmptyPage:
-            page_content = paginator.page(num_pages)
-
-        return render(request, 'pieces/collect_video.html', {'page_content': page_content,
-                                                             'page_list': page_list,
-                                                             'current_page': page_content.number,
-                                                             'num_pages': num_pages,
-                                                             'star_ids': star_ids})
+        # 使用分页工具
+        context = paginate_queryset(request, video_list, per_page=2)
+        context['star_ids'] = star_ids
+        return render(request, 'pieces/collect_video.html', context)
 
 #搜索引擎
-class VideoSearchView(SearchView):
+class VideoSearchView(PaginationMixin, SearchView):
 
     template = 'search/video_search.html'
     results = EmptySearchQuerySet()
     results_per_page = 2
+
     def __init__(self):
         from haystack.query import SearchQuerySet
         sqs=SearchQuerySet().using('video')
         super(VideoSearchView, self).__init__(searchqueryset=sqs)
+
     def get_query(self):
         queryset=super(VideoSearchView, self).get_query()
         return queryset
+
     def get_results(self):
         result=[]
         for obj in self.form.search():
             if obj.model_name == 'videomodel':
                 result.append(obj)
         return result
-    def get_context(self):
-        (paginator, page) = self.build_page()
-        num_pages = paginator.num_pages
-        page_number=int(self.request.GET.get('page',1))
-        # 获取页码数列，用于前端遍历
-        if paginator.num_pages > 5:
-            if page_number - 2 <= 1:
-                page_list = range(1, 6)
-            elif page_number + 2 >= num_pages:
-                page_list = range(num_pages - 4, num_pages + 1)
-            else:
-                page_list = range(page_number - 1, page_number + 4)
 
-        else:
-            page_list = paginator.page_range
-        piece_list=[]#接受查询到的对象
-        star_ids=[]#接受用户已点过赞的视频
-        collection_ids=[]#接受用户已收藏的视频
-        for video in page:
+    def get_context(self):
+        context = super().get_context()
+        piece_list=[]  # 接受查询到的对象
+        star_ids=[]  # 接受用户已点过赞的视频
+        collection_ids=[]  # 接受用户已收藏的视频
+        for video in context['page']:
             piece_list.append(video.object)
             if self.request.user.is_authenticated:
                 stars_obj=video.object.starmodel_set.all()
@@ -397,24 +317,10 @@ class VideoSearchView(SearchView):
                     if obj.user==self.request.user:
                         collection_ids.append(obj.video_id)
 
-        context = {
-            "query": self.query,
-            "form": self.form,
-            "page": page,
-            "page_list":page_list,
+        context.update({
             "piece_list": piece_list,
-            'current_page': page.number,
-            'num_pages': num_pages,
-            "paginator": paginator,
-            "q":self.get_query(),
-            "suggestion": None,
-            "star_ids":star_ids,
-            "collection_ids":collection_ids,
-        }
-
-        if (
-            hasattr(self.results, "query")
-            and self.results.query.backend.include_spelling
-        ):
-            context["suggestion"] = self.form.get_suggestion()
+            "q": self.get_query(),
+            "star_ids": star_ids,
+            "collection_ids": collection_ids,
+        })
         return context
