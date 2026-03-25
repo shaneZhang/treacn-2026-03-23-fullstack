@@ -1,12 +1,11 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import PageNotAnInteger, EmptyPage, Paginator
 from django.db import transaction
-from django.db.models import F
+from django.db.models import F, Q
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.views import View
-from haystack.query import EmptySearchQuerySet
-from haystack.views import SearchView
+
 
 from pieces_info.models import LifeModel
 
@@ -289,29 +288,24 @@ class CollectLifeList(LoginRequiredMixin, View):
                                                         'current_page': page_content.number,
                                                         'num_pages': num_pages,
                                                          'star_ids':star_ids})
-class LifeSearchView(SearchView):
-
-    template = 'search/life_search.html'
-    results = EmptySearchQuerySet()
+class LifeSearchView(View):
+    template_name = 'search/life_search.html'
     results_per_page = 2
-    def __init__(self):
-        from haystack.query import SearchQuerySet
-        sqs=SearchQuerySet().using('life')
-        super(LifeSearchView, self).__init__(searchqueryset=sqs)
-    def get_query(self):
-        queryset=super(LifeSearchView, self).get_query()
-        return queryset
-    def get_results(self):
-        result=[]
-        for obj in self.form.search():
-            if obj.model_name == 'lifemodel':
-                result.append(obj)
-        return result
-    def get_context(self):
-        (paginator, page) = self.build_page()
+
+    def get(self, request):
+        query = request.GET.get('q', '')
+        page_number = int(request.GET.get('page', 1))
+        
+        # 使用数据库查询进行搜索
+        lives = LifeModel.objects.filter(
+            Q(copy__icontains=query)
+        ).order_by('-is_top', '-id')
+        
+        # 分页处理
+        paginator = Paginator(lives, self.results_per_page)
         num_pages = paginator.num_pages
-        page_number = int(self.request.GET.get('page', 1))
-        # 获取页码数列，用于前端遍历
+        
+        # 获取页码数列
         if paginator.num_pages > 5:
             if page_number - 2 <= 1:
                 page_list = range(1, 6)
@@ -319,43 +313,44 @@ class LifeSearchView(SearchView):
                 page_list = range(num_pages - 4, num_pages + 1)
             else:
                 page_list = range(page_number - 1, page_number + 4)
-
         else:
             page_list = paginator.page_range
-        piece_list = []
 
-        star_ids = []  # 接受用户已点过赞的视频
-        collection_ids = []  # 接受用户已收藏的视频
+        try:
+            page = paginator.page(page_number)
+        except PageNotAnInteger:
+            page = paginator.page(1)
+        except EmptyPage:
+            page = paginator.page(num_pages)
+
+        piece_list = []
+        star_ids = []
+        collection_ids = []
+        
         for life in page:
-            piece_list.append(life.object)
-            if self.request.user.is_authenticated:
-                stars_obj = life.object.starmodel_set.all()
-                collections_obj = life.object.collectionmodel_set.all()
+            piece_list.append(life)
+            if request.user.is_authenticated:
+                stars_obj = life.starmodel_set.all()
+                collections_obj = life.collectionmodel_set.all()
                 for obj in stars_obj:
-                    if obj.user == self.request.user and obj.flag=='1':
+                    if obj.user == request.user and obj.flag == '1':
                         star_ids.append(obj.life_id)
                 for obj in collections_obj:
-                    if obj.user == self.request.user and obj.flag=='1':
+                    if obj.user == request.user and obj.flag == '1':
                         collection_ids.append(obj.life_id)
 
         context = {
-            "query": self.query,
-            "form": self.form,
+            "query": query,
             "page": page,
             "page_list": page_list,
             "piece_list": piece_list,
             'current_page': page.number,
             'num_pages': num_pages,
             "paginator": paginator,
-            "q": self.get_query(),
+            "q": query,
             "suggestion": None,
             "star_ids": star_ids,
             "collection_ids": collection_ids,
         }
-
-        if (
-                hasattr(self.results, "query")
-                and self.results.query.backend.include_spelling
-        ):
-            context["suggestion"] = self.form.get_suggestion()
-        return context
+        
+        return render(request, self.template_name, context)
