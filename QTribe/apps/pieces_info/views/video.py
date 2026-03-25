@@ -6,12 +6,10 @@ from django.conf import settings
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator, InvalidPage
 from django.db import transaction
-from django.db.models import F
+from django.db.models import F, Q
 from django.http import JsonResponse, Http404
 from django.shortcuts import redirect, render
 from django.views import View
-from haystack.query import EmptySearchQuerySet
-from haystack.views import SearchView
 
 from pieces_info.models import VideoModel, ImageModel
 
@@ -348,73 +346,70 @@ class CollectVideoList(LoginRequiredMixin, View):
                                                              'num_pages': num_pages,
                                                              'star_ids': star_ids})
 
-#搜索引擎
-class VideoSearchView(SearchView):
-
+class VideoSearchView(View):
     template = 'search/video_search.html'
-    results = EmptySearchQuerySet()
     results_per_page = 2
-    def __init__(self):
-        from haystack.query import SearchQuerySet
-        sqs=SearchQuerySet().using('video')
-        super(VideoSearchView, self).__init__(searchqueryset=sqs)
-    def get_query(self):
-        queryset=super(VideoSearchView, self).get_query()
-        return queryset
-    def get_results(self):
-        result=[]
-        for obj in self.form.search():
-            if obj.model_name == 'videomodel':
-                result.append(obj)
-        return result
-    def get_context(self):
-        (paginator, page) = self.build_page()
+
+    def get(self, request):
+        query = request.GET.get('q', '')
+        page_number = int(request.GET.get('page', 1))
+        
+        if query:
+            videos = VideoModel.objects.filter(
+                Q(title__icontains=query) | 
+                Q(remark__icontains=query) | 
+                Q(user__username__icontains=query)
+            )
+        else:
+            videos = VideoModel.objects.all()
+        
+        paginator = Paginator(videos, self.results_per_page)
         num_pages = paginator.num_pages
-        page_number=int(self.request.GET.get('page',1))
-        # 获取页码数列，用于前端遍历
-        if paginator.num_pages > 5:
+        
+        if num_pages > 5:
             if page_number - 2 <= 1:
                 page_list = range(1, 6)
             elif page_number + 2 >= num_pages:
                 page_list = range(num_pages - 4, num_pages + 1)
             else:
                 page_list = range(page_number - 1, page_number + 4)
-
         else:
             page_list = paginator.page_range
-        piece_list=[]#接受查询到的对象
-        star_ids=[]#接受用户已点过赞的视频
-        collection_ids=[]#接受用户已收藏的视频
+        
+        try:
+            page = paginator.page(page_number)
+        except PageNotAnInteger:
+            page = paginator.page(1)
+        except EmptyPage:
+            page = paginator.page(num_pages)
+        
+        piece_list = []
+        star_ids = []
+        collection_ids = []
+        
         for video in page:
-            piece_list.append(video.object)
-            if self.request.user.is_authenticated:
-                stars_obj=video.object.starmodel_set.all()
-                collections_obj=video.object.collectionmodel_set.all()
+            piece_list.append(video)
+            if request.user.is_authenticated:
+                stars_obj = video.starmodel_set.all()
+                collections_obj = video.collectionmodel_set.all()
                 for obj in stars_obj:
-                    if obj.user==self.request.user:
+                    if obj.user == request.user and obj.flag == '1':
                         star_ids.append(obj.video_id)
                 for obj in collections_obj:
-                    if obj.user==self.request.user:
+                    if obj.user == request.user and obj.flag == '1':
                         collection_ids.append(obj.video_id)
-
+        
         context = {
-            "query": self.query,
-            "form": self.form,
+            "query": query,
             "page": page,
-            "page_list":page_list,
+            "page_list": page_list,
             "piece_list": piece_list,
             'current_page': page.number,
             'num_pages': num_pages,
             "paginator": paginator,
-            "q":self.get_query(),
-            "suggestion": None,
-            "star_ids":star_ids,
-            "collection_ids":collection_ids,
+            "q": query,
+            "star_ids": star_ids,
+            "collection_ids": collection_ids,
         }
-
-        if (
-            hasattr(self.results, "query")
-            and self.results.query.backend.include_spelling
-        ):
-            context["suggestion"] = self.form.get_suggestion()
-        return context
+        
+        return render(request, self.template, context)

@@ -23,6 +23,6 @@ urlpatterns=[
    path('response_friend/', ResponseFriend.as_view()),
    path('refuse_friend/', RefuseFriend.as_view()),
    path('read_message/', ReadMessage.as_view()),
-   path('search_user/', UserSearchView()),
+   path('search_user/', UserSearchView.as_view()),
 
 ]
