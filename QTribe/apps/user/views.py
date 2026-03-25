@@ -4,13 +4,13 @@ from django.contrib import auth
 from django.contrib.admin import action
 from django.db import transaction
 from django.db.models import F, Q
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.views import View
-from haystack.query import EmptySearchQuerySet
-from haystack.views import SearchView
+
 
 from user.models import UserModel,FocusModel,FriendModel
 
@@ -255,29 +255,26 @@ class ReadMessage(View):
 
 
 #搜索引擎
-class UserSearchView(SearchView):
-
-    template = 'search/user_search.html'
-    results = EmptySearchQuerySet()
+class UserSearchView(View):
+    template_name = 'search/user_search.html'
     results_per_page = 2
-    def __init__(self):
-        from haystack.query import SearchQuerySet
-        sqs=SearchQuerySet().using('user')
-        super(UserSearchView, self).__init__(searchqueryset=sqs)
-    def get_query(self):
-        queryset=super(UserSearchView, self).get_query()
-        return queryset
-    def get_results(self):
-        result=[]
-        for obj in self.form.search():
-            if obj.model_name == 'usermodel':
-                result.append(obj)
-        return result
-    def get_context(self):
-        (paginator, page) = self.build_page()
+
+    def get(self, request):
+        query = request.GET.get('q', '')
+        page_number = int(request.GET.get('page', 1))
+        
+        # 使用数据库查询进行搜索
+        users = UserModel.objects.filter(
+            Q(username__icontains=query) | 
+            Q(personalized_signature__icontains=query) |
+            Q(personal_introduce__icontains=query)
+        ).order_by('-id')
+        
+        # 分页处理
+        paginator = Paginator(users, self.results_per_page)
         num_pages = paginator.num_pages
-        page_number=int(self.request.GET.get('page',1))
-        # 获取页码数列，用于前端遍历
+        
+        # 获取页码数列
         if paginator.num_pages > 5:
             if page_number - 2 <= 1:
                 page_list = range(1, 6)
@@ -285,46 +282,50 @@ class UserSearchView(SearchView):
                 page_list = range(num_pages - 4, num_pages + 1)
             else:
                 page_list = range(page_number - 1, page_number + 4)
-
         else:
             page_list = paginator.page_range
-        user_list=[]
-        focus_ids=[]
-        friend_ids=[]
+
+        try:
+            page = paginator.page(page_number)
+        except PageNotAnInteger:
+            page = paginator.page(1)
+        except EmptyPage:
+            page = paginator.page(num_pages)
+
+        user_list = []
+        focus_ids = []
+        friend_ids = []
         icon_ids = []
+        
         for user in page:
-            user_list.append(user.object)
-            if user.object.icon:
-                    icon_ids.append(user.object.id)
-        if self.request.user.is_authenticated:
-            focus_objs=self.request.user.focusmodel_set.all()
+            user_list.append(user)
+            if user.icon:
+                icon_ids.append(user.id)
+        
+        if request.user.is_authenticated:
+            focus_objs = request.user.focusmodel_set.all()
             for obj in focus_objs:
-                if obj.flag=='1':
+                if obj.flag == '1':
                     focus_ids.append(obj.focus_user_id)
-            friend_objs=self.request.user.friendmodel_set.all()
+            friend_objs = request.user.friendmodel_set.all()
             for obj in friend_objs:
-                if obj.flag=='1':
+                if obj.flag == '1':
                     friend_ids.append(obj.friend_user_id)
+
         context = {
-            "query": self.query,
-            "form": self.form,
+            "query": query,
             "page": page,
-            "page_list":page_list,
+            "page_list": page_list,
             "user_list": user_list,
             'current_page': page.number,
             'num_pages': num_pages,
             "paginator": paginator,
-            "q":self.get_query(),
+            "q": query,
             "suggestion": None,
-            "focus_ids":focus_ids,
-            "friend_ids":friend_ids,
-            "icon_ids":icon_ids,
+            "focus_ids": focus_ids,
+            "friend_ids": friend_ids,
+            "icon_ids": icon_ids,
         }
-
-        if (
-            hasattr(self.results, "query")
-            and self.results.query.backend.include_spelling
-        ):
-            context["suggestion"] = self.form.get_suggestion()
-        return context
+        
+        return render(request, self.template_name, context)
 
