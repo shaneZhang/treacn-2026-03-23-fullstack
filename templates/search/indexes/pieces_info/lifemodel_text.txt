@@ -1,2 +1,0 @@
-{{object.copy}}
-{{object.user.username}}

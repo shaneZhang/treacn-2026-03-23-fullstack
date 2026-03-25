@@ -17,7 +17,7 @@ urlpatterns=[
      path('collect_video/',CollectVideo.as_view()),
      path('star_video_list/',StarVideoList.as_view()),
      path('collect_video_list/',CollectVideoList.as_view()),
-     path('search_video/',VideoSearchView()),
+     path('search_video/',VideoSearchView.as_view()),
      #文章
      path('my_article/',MyArticle.as_view()),
      path('star_article/',StarArticle.as_view()),
@@ -28,7 +28,7 @@ urlpatterns=[
      path('collect_article/',CollectArticle.as_view()),
      path('star_article_list/',StarArticleList.as_view()),
      path('collect_article_list/',CollectArticleList.as_view()),
-     path('search_article/',ArticleSearchView()),
+     path('search_article/',ArticleSearchView.as_view()),
      #生活
      path('my_life/',MyLife.as_view()),
      path('share_life/',ShareLife.as_view()),
@@ -39,7 +39,7 @@ urlpatterns=[
      path('collect_life/',CollectLife.as_view()),
      path('star_life_list/',StarLifeList.as_view()),
      path('collect_life_list/',CollectLifeList.as_view()),
-     path('search_life/',LifeSearchView()),
+     path('search_life/',LifeSearchView.as_view()),
      #评论
      path('comment_life/',Comment_life.as_view())
 
