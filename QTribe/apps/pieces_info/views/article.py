@@ -1,7 +1,7 @@
 
 #自己的文章列表页面
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from QTribe.utils import CustomPaginator
 from django.db import transaction
 from django.http import JsonResponse
 from django.shortcuts import redirect, render
@@ -36,31 +36,10 @@ class MyArticle(LoginRequiredMixin, View):
     def get(self,request):
         page_number = int(request.GET.get('page_number', 1))
         articles=ArticleModel.objects.filter(user=request.user)
-        # 创建分页对象
-        paginator = Paginator(articles, 5)
-        num_pages = paginator.num_pages
-        # 获取页码数列，用于前端遍历
-        if paginator.num_pages > 5:
-            if page_number - 2 <= 1:
-                page_list = range(1, 6)
-            elif page_number + 2 >= num_pages:
-                page_list = range(num_pages - 4, num_pages + 1)
-            else:
-                page_list = range(page_number - 1, page_number + 4)
-
-        else:
-            page_list = paginator.page_range
-        try:
-            # 获取对应页数的全部视频
-            page_content = paginator.page(page_number)
-        except PageNotAnInteger:
-            page_content = paginator.page(1)
-        except EmptyPage:
-            page_content = paginator.page(num_pages)
-        return render(request, 'pieces/my_article.html', {'page_content': page_content,
-                                                        'page_list': page_list,
-                                                        'current_page': page_content.number,
-                                                        'num_pages': num_pages})
+        # 使用自定义分页工具
+        paginator = CustomPaginator(articles, 5, page_number)
+        context = paginator.get_context_data()
+        return render(request, 'pieces/my_article.html', context)
 
 
 #文章点赞量
@@ -203,32 +182,13 @@ class StarArticleList(LoginRequiredMixin, View):
             for obj in objs:
                 if obj.article==article and obj.flag=='1':
                     collection_ids.append(article.id)
-        # 创建分页对象
-        paginator = Paginator(articles, 2)
-        num_pages = paginator.num_pages
-        # 获取页码数列，用于前端遍历
-        if paginator.num_pages > 5:
-            if page_number - 2 <= 1:
-                page_list = range(1, 6)
-            elif page_number + 2 >= num_pages:
-                page_list = range(num_pages - 4, num_pages + 1)
-            else:
-                page_list = range(page_number - 1, page_number + 4)
-
-        else:
-            page_list = paginator.page_range
-        try:
-            # 获取对应页数的全部视频
-            page_content = paginator.page(page_number)
-        except PageNotAnInteger:
-            page_content = paginator.page(1)
-        except EmptyPage:
-            page_content = paginator.page(num_pages)
-        return render(request, 'pieces/star_article.html', {'page_content': page_content,
-                                                        'page_list': page_list,
-                                                        'current_page': page_content.number,
-                                                        'num_pages': num_pages,
-                                                         'collection_ids':collection_ids})
+        # 使用自定义分页工具
+        paginator = CustomPaginator(articles, 2, page_number)
+        extra_context = {
+            'collection_ids': collection_ids,
+        }
+        context = paginator.get_context_data(extra_context)
+        return render(request, 'pieces/star_article.html', context)
 #收藏文章列表页面
 class CollectArticleList(LoginRequiredMixin, View):
     def get(self,request):
@@ -245,32 +205,13 @@ class CollectArticleList(LoginRequiredMixin, View):
             for obj in objs:
                 if obj.article==article and obj.flag=='1':
                     star_ids.append(article.id)
-        # 创建分页对象
-        paginator = Paginator(articles, 2)
-        num_pages = paginator.num_pages
-        # 获取页码数列，用于前端遍历
-        if paginator.num_pages > 5:
-            if page_number - 2 <= 1:
-                page_list = range(1, 6)
-            elif page_number + 2 >= num_pages:
-                page_list = range(num_pages - 4, num_pages + 1)
-            else:
-                page_list = range(page_number - 1, page_number + 4)
-
-        else:
-            page_list = paginator.page_range
-        try:
-            # 获取对应页数的全部视频
-            page_content = paginator.page(page_number)
-        except PageNotAnInteger:
-            page_content = paginator.page(1)
-        except EmptyPage:
-            page_content = paginator.page(num_pages)
-        return render(request, 'pieces/collect_article.html', {'page_content': page_content,
-                                                        'page_list': page_list,
-                                                        'current_page': page_content.number,
-                                                        'num_pages': num_pages,
-                                                         'star_ids':star_ids})
+        # 使用自定义分页工具
+        paginator = CustomPaginator(articles, 2, page_number)
+        extra_context = {
+            'star_ids': star_ids,
+        }
+        context = paginator.get_context_data(extra_context)
+        return render(request, 'pieces/collect_article.html', context)
 class ArticleSearchView(SearchView):
 
     template = 'search/article_search.html'
