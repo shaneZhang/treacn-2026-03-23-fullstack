@@ -1,5 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.core.paginator import PageNotAnInteger, EmptyPage, Paginator
+from QTribe.utils import CustomPaginator
 from django.db import transaction
 from django.db.models import F
 from django.http import JsonResponse
@@ -48,31 +48,10 @@ class MyLife(LoginRequiredMixin, View):
     def get(self,request):
         page_number = int(request.GET.get('page_number', 1))
         lives=LifeModel.objects.filter(user=request.user)
-        # 创建分页对象
-        paginator = Paginator(lives, 5)
-        num_pages = paginator.num_pages
-        # 获取页码数列，用于前端遍历
-        if paginator.num_pages > 5:
-            if page_number - 2 <= 1:
-                page_list = range(1, 6)
-            elif page_number + 2 >= num_pages:
-                page_list = range(num_pages - 4, num_pages + 1)
-            else:
-                page_list = range(page_number - 1, page_number + 4)
-
-        else:
-            page_list = paginator.page_range
-        try:
-            # 获取对应页数的全部视频
-            page_content = paginator.page(page_number)
-        except PageNotAnInteger:
-            page_content = paginator.page(1)
-        except EmptyPage:
-            page_content = paginator.page(num_pages)
-        return render(request, 'pieces/my_life.html', {'page_content': page_content,
-                                                        'page_list': page_list,
-                                                        'current_page': page_content.number,
-                                                        'num_pages': num_pages})
+        # 使用自定义分页工具
+        paginator = CustomPaginator(lives, 5, page_number)
+        context = paginator.get_context_data()
+        return render(request, 'pieces/my_life.html', context)
 #文章点赞量
 class StarLife(View):
     def get(self,request):
@@ -221,32 +200,13 @@ class StarLifeList(LoginRequiredMixin, View):
             for obj in objs:
                 if obj.life==life and obj.flag=='1':
                     collection_ids.append(life.id)
-        # 创建分页对象
-        paginator = Paginator(lives, 2)
-        num_pages = paginator.num_pages
-        # 获取页码数列，用于前端遍历
-        if paginator.num_pages > 5:
-            if page_number - 2 <= 1:
-                page_list = range(1, 6)
-            elif page_number + 2 >= num_pages:
-                page_list = range(num_pages - 4, num_pages + 1)
-            else:
-                page_list = range(page_number - 1, page_number + 4)
-
-        else:
-            page_list = paginator.page_range
-        try:
-            # 获取对应页数的全部视频
-            page_content = paginator.page(page_number)
-        except PageNotAnInteger:
-            page_content = paginator.page(1)
-        except EmptyPage:
-            page_content = paginator.page(num_pages)
-        return render(request, 'pieces/star_life.html', {'page_content': page_content,
-                                                        'page_list': page_list,
-                                                        'current_page': page_content.number,
-                                                        'num_pages': num_pages,
-                                                         'collection_ids':collection_ids})
+        # 使用自定义分页工具
+        paginator = CustomPaginator(lives, 2, page_number)
+        extra_context = {
+            'collection_ids': collection_ids,
+        }
+        context = paginator.get_context_data(extra_context)
+        return render(request, 'pieces/star_life.html', context)
 #收藏生活列表页面
 class CollectLifeList(LoginRequiredMixin, View):
     def get(self,request):
@@ -259,36 +219,17 @@ class CollectLifeList(LoginRequiredMixin, View):
         lives=LifeModel.objects.filter(id__in=collection_ids)
         star_ids=[]
         for life in lives:
-            objs=request.user.collectionmodel_set.all()
+            objs=request.user.starmodel_set.all()
             for obj in objs:
                 if obj.life==life and obj.flag=='1':
                     star_ids.append(life.id)
-        # 创建分页对象
-        paginator = Paginator(lives, 2)
-        num_pages = paginator.num_pages
-        # 获取页码数列，用于前端遍历
-        if paginator.num_pages > 5:
-            if page_number - 2 <= 1:
-                page_list = range(1, 6)
-            elif page_number + 2 >= num_pages:
-                page_list = range(num_pages - 4, num_pages + 1)
-            else:
-                page_list = range(page_number - 1, page_number + 4)
-
-        else:
-            page_list = paginator.page_range
-        try:
-            # 获取对应页数的全部视频
-            page_content = paginator.page(page_number)
-        except PageNotAnInteger:
-            page_content = paginator.page(1)
-        except EmptyPage:
-            page_content = paginator.page(num_pages)
-        return render(request, 'pieces/collect_life.html', {'page_content': page_content,
-                                                        'page_list': page_list,
-                                                        'current_page': page_content.number,
-                                                        'num_pages': num_pages,
-                                                         'star_ids':star_ids})
+        # 使用自定义分页工具
+        paginator = CustomPaginator(lives, 2, page_number)
+        extra_context = {
+            'star_ids': star_ids,
+        }
+        context = paginator.get_context_data(extra_context)
+        return render(request, 'pieces/collect_life.html', context)
 class LifeSearchView(SearchView):
 
     template = 'search/life_search.html'

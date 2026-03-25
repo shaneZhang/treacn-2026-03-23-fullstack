@@ -1,4 +1,4 @@
-from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from QTribe.utils import CustomPaginator
 from django.shortcuts import render, redirect
 
 # Create your views here.
@@ -53,33 +53,14 @@ class VideoMall(View):
                     if obj.video==video and obj.flag=='1':
                         collection_ids.append(video.id)
 
-        # 创建分页对象
-        paginator = Paginator(video_list, 5)
-        num_pages = paginator.num_pages
-        # 获取页码数列，用于前端遍历
-        if paginator.num_pages > 5:
-            if page_number - 2 <= 1:
-                page_list = range(1, 6)
-            elif page_number + 2 >= num_pages:
-                page_list = range(num_pages - 4, num_pages + 1)
-            else:
-                page_list = range(page_number - 1, page_number + 4)
-
-        else:
-            page_list = paginator.page_range
-        try:
-            # 获取对应页数的全部视频
-            page_content = paginator.page(page_number)
-        except PageNotAnInteger:
-            page_content = paginator.page(1)
-        except EmptyPage:
-            page_content = paginator.page(num_pages)
-        return render(request, 'public/video_mall.html', {'page_content': page_content,
-                                                        'page_list': page_list,
-                                                        'current_page': page_content.number,
-                                                        'num_pages': num_pages,
-                                                        'star_ids':star_ids,
-                                                        'collection_ids':collection_ids,})
+        # 使用自定义分页工具
+        paginator = CustomPaginator(video_list, 5, page_number)
+        extra_context = {
+            'star_ids': star_ids,
+            'collection_ids': collection_ids,
+        }
+        context = paginator.get_context_data(extra_context)
+        return render(request, 'public/video_mall.html', context)
 #文章广场
 class ArticleMall(View):
     def get(self,request):
@@ -98,34 +79,14 @@ class ArticleMall(View):
                 for obj in objs:
                     if obj.article==article and obj.flag=='1':
                         collection_ids.append(article.id)
-        # 创建分页对象
-        paginator = Paginator(articles, 5)
-        num_pages = paginator.num_pages
-        # 获取页码数列，用于前端遍历
-        if paginator.num_pages > 5:
-            if page_number - 2 <= 1:
-                page_list = range(1, 6)
-            elif page_number + 2 >= num_pages:
-                page_list = range(num_pages - 4, num_pages + 1)
-            else:
-                page_list = range(page_number - 1, page_number + 4)
-
-        else:
-            page_list = paginator.page_range
-        try:
-            # 获取对应页数的全部视频
-            page_content = paginator.page(page_number)
-        except PageNotAnInteger:
-            page_content = paginator.page(1)
-        except EmptyPage:
-            page_content = paginator.page(num_pages)
-        return render(request, 'public/article_mall.html', {'page_content': page_content,
-                                                        'page_list': page_list,
-                                                        'current_page': page_content.number,
-                                                        'num_pages': num_pages,
-                                                        'star_ids':star_ids,
-                                                        'collection_ids':collection_ids,
-                                                        })
+        # 使用自定义分页工具
+        paginator = CustomPaginator(articles, 5, page_number)
+        extra_context = {
+            'star_ids': star_ids,
+            'collection_ids': collection_ids,
+        }
+        context = paginator.get_context_data(extra_context)
+        return render(request, 'public/article_mall.html', context)
 
 class LifeMall(View):
     def get(self,request):
@@ -145,34 +106,14 @@ class LifeMall(View):
                     if obj.life==life and obj.flag=='1':
                         collection_ids.append(life.id)
 
-        # 创建分页对象
-        paginator = Paginator(lives, 5)
-        num_pages = paginator.num_pages
-        # 获取页码数列，用于前端遍历
-        if paginator.num_pages > 5:
-            if page_number - 2 <= 1:
-                page_list = range(1, 6)
-            elif page_number + 2 >= num_pages:
-                page_list = range(num_pages - 4, num_pages + 1)
-            else:
-                page_list = range(page_number - 1, page_number + 4)
-
-        else:
-            page_list = paginator.page_range
-        try:
-            # 获取对应页数的全部视频
-            page_content = paginator.page(page_number)
-        except PageNotAnInteger:
-            page_content = paginator.page(1)
-        except EmptyPage:
-            page_content = paginator.page(num_pages)
-        return render(request, 'public/life_mall.html', {'page_content': page_content,
-                                                        'page_list': page_list,
-                                                        'current_page': page_content.number,
-                                                        'num_pages': num_pages,
-                                                        'star_ids':star_ids,
-                                                        'collection_ids':collection_ids,
-                                                        })
+        # 使用自定义分页工具
+        paginator = CustomPaginator(lives, 5, page_number)
+        extra_context = {
+            'star_ids': star_ids,
+            'collection_ids': collection_ids,
+        }
+        context = paginator.get_context_data(extra_context)
+        return render(request, 'public/life_mall.html', context)
 
 #其他用户
 class OtherUser(View):
@@ -202,34 +143,15 @@ class OtherUser(View):
         for user in users:
             if  user.icon:
                 icon_ids.append(user.id)
-        # 创建分页对象
-        paginator = Paginator(users, 10)
-        num_pages = paginator.num_pages
-        # 获取页码数列，用于前端遍历
-        if paginator.num_pages > 5:
-            if page_number - 2 <= 1:
-                page_list = range(1, 6)
-            elif page_number + 2 >= num_pages:
-                page_list = range(num_pages - 4, num_pages + 1)
-            else:
-                page_list = range(page_number - 1, page_number + 4)
-
-        else:
-            page_list = paginator.page_range
-        try:
-            # 获取对应页数的全部视频
-            page_content = paginator.page(page_number)
-        except PageNotAnInteger:
-            page_content = paginator.page(1)
-        except EmptyPage:
-            page_content = paginator.page(num_pages)
-        return render(request, 'user/other_user.html', {'page_content': page_content,
-                                                        'page_list': page_list,
-                                                        'current_page': page_content.number,
-                                                        'num_pages': num_pages,
-                                                        'focus_ids':focus_ids,
-                                                        'friend_ids':friend_ids,
-                                                        'icon_ids':icon_ids,})
+        # 使用自定义分页工具
+        paginator = CustomPaginator(users, 10, page_number)
+        extra_context = {
+            'focus_ids': focus_ids,
+            'friend_ids': friend_ids,
+            'icon_ids': icon_ids,
+        }
+        context = paginator.get_context_data(extra_context)
+        return render(request, 'user/other_user.html', context)
 
 class OtherDetails(View):
     def get(self,request):
